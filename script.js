@@ -19,7 +19,7 @@ let count = 3; // এখন 3 সেকেন্ড
 const timer = setInterval(()=>{
   countdown.innerText = `Revealing surprise in ${count}...`;
   count--;
-  if(count<0){
+  if(count < 0){
     clearInterval(timer);
     countdown.innerText = "🎊 Surprise Time! 🎊";
   }
@@ -34,19 +34,19 @@ const audio = document.getElementById("celebrateSound");
 const correctSequence = [2,4,1,3];
 let userSequence = [];
 
-buttons.forEach(btn=>{
-  btn.addEventListener("click", ()=>{
+buttons.forEach(btn => {
+  btn.addEventListener("click", () => {
     userSequence.push(parseInt(btn.dataset.value));
+
     if(userSequence.length === correctSequence.length){
-      let correct = userSequence.every((v,i)=>v===correctSequence[i]);
+      const correct = userSequence.every((v,i) => v === correctSequence[i]);
       if(correct){
-        // Surprise trigger
-        secret.classList.remove("hidden");   // Message show
-        audio.play();                        // Music play
-        fireworks();                          // Fireworks show
+        secret.classList.remove("hidden");  // Show message
+        audio.play();                        // Play sound
+        fireworks();                          // Show fireworks
       } else {
         userSequence = [];
-        shakePuzzle();
+        shakePuzzle();                        // Wrong sequence shake
       }
     }
   });
