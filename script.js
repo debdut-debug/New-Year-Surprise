@@ -16,15 +16,23 @@ typeEffect();
 
 // ===== Countdown =====
 const countdown = document.getElementById("countdown");
-let count = 3; // ✅ 3 সেকেন্ড
-const timer = setInterval(()=>{
+let count = 3; // Start 3 seconds
+
+function startCountdown() {
   countdown.innerText = `Revealing surprise in ${count}...`;
-  count--;
-  if(count < 0){
-    clearInterval(timer);
-    countdown.innerText = "🎊 Surprise Time! 🎊";
-  }
-},1000);
+
+  const interval = setInterval(() => {
+    count--;
+    if(count > 0){
+      countdown.innerText = `Revealing surprise in ${count}...`;
+    } else {
+      clearInterval(interval);
+      countdown.innerText = "🎊 Surprise Time! 🎊";
+    }
+  }, 1000);
+}
+
+startCountdown(); // Call countdown
 
 // ===== Puzzle / Secret Message =====
 const buttons = document.querySelectorAll("#puzzle button");
@@ -78,3 +86,4 @@ function fireworks(){
   }
   setTimeout(()=>ctx.clearRect(0,0,canvas.width,canvas.height),800);
 }
+
