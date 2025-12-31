@@ -15,7 +15,7 @@ typeEffect();
 
 // ===== Countdown =====
 const countdown = document.getElementById("countdown");
-let count = 10;
+let count = 3; // এখন 3 সেকেন্ড
 const timer = setInterval(()=>{
   countdown.innerText = `Revealing surprise in ${count}...`;
   count--;
@@ -40,9 +40,10 @@ buttons.forEach(btn=>{
     if(userSequence.length === correctSequence.length){
       let correct = userSequence.every((v,i)=>v===correctSequence[i]);
       if(correct){
-        secret.classList.remove("hidden");
-        audio.play();
-        fireworks();
+        // Surprise trigger
+        secret.classList.remove("hidden");   // Message show
+        audio.play();                        // Music play
+        fireworks();                          // Fireworks show
       } else {
         userSequence = [];
         shakePuzzle();
