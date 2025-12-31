@@ -16,7 +16,7 @@ typeEffect();
 
 // ===== Countdown =====
 const countdown = document.getElementById("countdown");
-let count = 3; // Start 3 seconds
+let count = 3; // 3 seconds countdown
 
 function startCountdown() {
   countdown.innerText = `Revealing surprise in ${count}...`;
@@ -32,7 +32,7 @@ function startCountdown() {
   }, 1000);
 }
 
-startCountdown(); // Call countdown
+startCountdown();
 
 // ===== Puzzle / Secret Message =====
 const buttons = document.querySelectorAll("#puzzle button");
@@ -51,11 +51,12 @@ buttons.forEach(btn => {
       const correct = userSequence.every((v,i) => v===correctSequence[i]);
       if(correct){
         secret.classList.remove("hidden");  // Show secret message
-        audio.play();                        // Play celebration music
-        fireworks();                          // Show fireworks
+        audio.currentTime = 0;             // Reset song to start
+        audio.play();                       // Play song
+        fireworks();                        // Show fireworks
       } else {
         userSequence = [];
-        shakePuzzle();                        // Wrong sequence → shake
+        shakePuzzle();                      // Wrong sequence → shake
       }
     }
   });
@@ -86,4 +87,3 @@ function fireworks(){
   }
   setTimeout(()=>ctx.clearRect(0,0,canvas.width,canvas.height),800);
 }
-
