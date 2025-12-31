@@ -1,67 +1,60 @@
-body {
+* {
   margin: 0;
   padding: 0;
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-  overflow: hidden;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #000428, #004e92);
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
+  overflow: hidden;
+}
+
+.container {
   text-align: center;
-  flex-direction: column;
-  padding: 10px;
+  background: rgba(0,0,0,0.5);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(0,255,255,0.4);
 }
 
 h1 {
-  font-size: 2.5em;
-  color: white;
+  font-size: 2.5rem;
   margin-bottom: 15px;
-  animation: fadeIn 2s ease-in-out;
 }
 
 #countdown {
-  font-size: 1.8em;
-  color: #fff;
-  margin-bottom: 15px;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
 }
 
-#puzzle button {
-  padding: 12px 20px;
+button {
+  font-size: 24px;
+  padding: 10px 15px;
   margin: 8px;
-  font-size: 1.5em;
-  cursor: pointer;
   border: none;
   border-radius: 10px;
-  transition: transform 0.2s, background 0.2s;
-  background: rgba(255,255,255,0.9);
+  cursor: pointer;
+  background: #ff9800;
+  transition: transform 0.2s, background 0.3s;
 }
 
-#puzzle button:hover {
+button:hover {
   transform: scale(1.2);
-  background: #fff;
+  background: #ffc107;
 }
 
-#secretMessage {
-  font-size: 1.3em;
-  color: #fff;
-  letter-spacing: 2px;
-  margin-top: 15px;
-  word-wrap: break-word;
-}
-
-.hidden { display: none; }
-
-@keyframes fadeIn {
-  from {opacity: 0; transform: scale(0.5);}
-  to {opacity: 1; transform: scale(1);}
+.hidden {
+  display: none;
 }
 
 canvas {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
 }
