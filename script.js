@@ -4,6 +4,7 @@ console.log("JS loaded ✅");
 const greeting = document.getElementById("greeting");
 const text = "🎉 Happy New Year! 🥳";
 let index = 0;
+
 function typeEffect() {
   if(index < text.length){
     greeting.innerHTML += text.charAt(index);
@@ -15,7 +16,7 @@ typeEffect();
 
 // ===== Countdown =====
 const countdown = document.getElementById("countdown");
-let count = 3; // এখন 3 সেকেন্ড
+let count = 3; // ✅ 3 সেকেন্ড
 const timer = setInterval(()=>{
   countdown.innerText = `Revealing surprise in ${count}...`;
   count--;
@@ -39,14 +40,14 @@ buttons.forEach(btn => {
     userSequence.push(parseInt(btn.dataset.value));
 
     if(userSequence.length === correctSequence.length){
-      const correct = userSequence.every((v,i) => v === correctSequence[i]);
+      const correct = userSequence.every((v,i) => v===correctSequence[i]);
       if(correct){
-        secret.classList.remove("hidden");  // Show message
-        audio.play();                        // Play sound
+        secret.classList.remove("hidden");  // Show secret message
+        audio.play();                        // Play celebration music
         fireworks();                          // Show fireworks
       } else {
         userSequence = [];
-        shakePuzzle();                        // Wrong sequence shake
+        shakePuzzle();                        // Wrong sequence → shake
       }
     }
   });
